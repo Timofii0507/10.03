@@ -5,31 +5,26 @@ using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FacadePattern
+public class Facade
 {
-    public class Facade
+    private Subsystem1 _subsystem1;
+    private Subsystem2 _subsystem2;
+
+    public Facade()
     {
-        private SubsystemA _subsystemA;
-        private SubsystemB _subsystemB;
-        private SubsystemC _subsystemC;
+        _subsystem1 = new Subsystem1();
+        _subsystem2 = new Subsystem2();
+    }
 
-        public Facade()
-        {
-            _subsystemA = new SubsystemA();
-            _subsystemB = new SubsystemB();
-            _subsystemC = new SubsystemC();
-        }
+    public void Operation1()
+    {
+        _subsystem1.Operation1();
+        _subsystem2.Operation1();
+    }
 
-        public void Operation1()
-        {
-            _subsystemA.MethodA();
-            _subsystemB.MethodB();
-        }
-
-        public void Operation2()
-        {
-            _subsystemB.MethodB();
-            _subsystemC.MethodC();
-        }
+    public void Operation2()
+    {
+        _subsystem1.Operation2();
+        _subsystem2.Operation2();
     }
 }

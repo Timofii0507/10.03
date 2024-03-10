@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FacadePattern
+using System;
+
+public class Client
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.CursorVisible = false;
-            var facade = new Facade();
+        Console.InputEncoding = Encoding.Unicode;
+        Console.OutputEncoding = Encoding.Unicode;
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
+        Console.CursorVisible = false;
+        Facade facade = new Facade();
 
-            facade.Operation1();
-            Console.WriteLine();
-            facade.Operation2();
+        facade.Operation1();
+        facade.Operation2();
 
-            Console.ReadKey();
-        }
+        Console.ReadKey();
     }
 }
